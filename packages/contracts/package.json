@@ -1,0 +1,20 @@
+{
+  "name": "contracts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
+    "viem": "^2.21.29"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition": "^0.15.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.12",
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "@nomicfoundation/hardhat-viem": "^2.0.5",
+    "@types/chai": "^5.0.0",
+    "@types/mocha": "^10.0.9",
+    "chai": "^5.1.1",
+    "hardhat": "^2.22.13",
+    "mocha": "^10.7.3"
+  }
+}

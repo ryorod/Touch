@@ -1,4 +1,26 @@
 {
-  "name": "Touch",
-  "packageManager": "yarn@4.3.1"
+  "name": "touch",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --filter=frontend",
+    "build": "turbo run build --filter=frontend",
+    "lint": "turbo run lint --filter=frontend",
+    "test": "turbo run test --filter=frontend",
+    "dev:contracts": "turbo run compile --filter=contracts && turbo run test --filter=contracts",
+    "build:contracts": "turbo run compile --filter=contracts",
+    "test:contracts": "turbo run test --filter=contracts",
+    "deploy:contracts": "turbo run deploy --filter=contracts"
+  },
+  "packageManager": "yarn@4.3.1",
+  "devDependencies": {
+    "turbo": "^2.2.0"
+  },
+  "volta": {
+    "node": "20.18.0",
+    "yarn": "4.3.1"
+  }
 }
