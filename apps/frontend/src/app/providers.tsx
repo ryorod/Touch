@@ -2,7 +2,7 @@
 import { PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth";
 import { WagmiProvider, createConfig } from "@privy-io/wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { skaleCalypso, skaleCalypsoTestnet } from "viem/chains";
+import { skaleCalypsoTestnet } from "viem/chains";
 import { http } from "wagmi";
 
 const queryClient = new QueryClient();
@@ -31,9 +31,8 @@ const privyConfig: PrivyClientConfig = {
 };
 
 const wagmiConfig = createConfig({
-  chains: [skaleCalypso, skaleCalypsoTestnet],
+  chains: [skaleCalypsoTestnet],
   transports: {
-    [skaleCalypso.id]: http(),
     [skaleCalypsoTestnet.id]: http(),
   },
 });

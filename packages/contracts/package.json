@@ -2,19 +2,46 @@
   "name": "contracts",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:MyToken": "hardhat ignition deploy ignition/modules/MyToken.ts --network skaleCalypsoTestnet",
+    "verify:MyToken": "hardhat verify 0x2BBc8993B3fEc795DED0b0aa050110a2e2B3F76D --network skaleCalypsoTestnet",
+    "deploy:SecretTokenManager": "hardhat ignition deploy ignition/modules/SecretTokenManager.ts --network skaleCalypsoTestnet",
+    "verify:SecretTokenManager": "hardhat verify 0x133926687672EdF79ce28A8F3180b30c154f5a55 --network skaleCalypsoTestnet",
+    "deploy:EncountersFactory": "hardhat ignition deploy ignition/modules/EncountersFactory.ts --network skaleCalypsoTestnet",
+    "verify:EncountersFactory": "hardhat verify 0x1fC39b1d554423f22669140A8D8940E49d1C795F --network skaleCalypsoTestnet --constructor-args ignition/arguments/EncountersFactory.ts"
+  },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0",
     "viem": "^2.21.29"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
     "@nomicfoundation/hardhat-ignition": "^0.15.6",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
+    "@nomicfoundation/hardhat-ignition-viem": "^0.15.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.12",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
     "@nomicfoundation/hardhat-viem": "^2.0.5",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
     "@types/chai": "^5.0.0",
+    "@types/chai-as-promised": "^7.1.6",
     "@types/mocha": "^10.0.9",
-    "chai": "^5.1.1",
+    "@types/node": "^22.7.7",
+    "chai": "4.3.7",
+    "dotenv": "^16.4.5",
     "hardhat": "^2.22.13",
-    "mocha": "^10.7.3"
+    "hardhat-gas-reporter": "^1.0.8",
+    "mocha": "^10.7.3",
+    "solidity-coverage": "^0.8.1",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.0",
+    "typescript": "^5.6.3"
   }
 }
