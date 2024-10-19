@@ -19,6 +19,7 @@ import {
   SecretTokenManagerABIAddress,
 } from "@/constants/abiAndAddress";
 import { Card } from "@/components/ui/card";
+import { getFreeGas } from "@/utils/freeGas";
 
 export default function RegisterPage() {
   const { authenticated, user, login } = usePrivy();
@@ -116,6 +117,12 @@ export default function RegisterPage() {
 
     setStatus("Creating MyToken...");
 
+    try {
+      await getFreeGas(user.wallet.address);
+    } catch (e) {
+      console.warn(e);
+    }
+
     writeContract?.(
       {
         ...configMintMyToken,
@@ -137,7 +144,7 @@ export default function RegisterPage() {
   const createCollection = async () => {
     const { data: tokenIdData } = await refetchTokenData();
 
-    if (!tokenIdData) {
+    if (typeof tokenIdData !== "bigint") {
       setStatus("Failed to get tokenId");
       setLoading(false);
       return;

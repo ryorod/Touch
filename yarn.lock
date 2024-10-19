@@ -561,7 +561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ethersproject/wallet@npm:5.7.0":
+"@ethersproject/wallet@npm:5.7.0, @ethersproject/wallet@npm:^5.7.0":
   version: 5.7.0
   resolution: "@ethersproject/wallet@npm:5.7.0"
   dependencies:
@@ -2638,6 +2638,39 @@ __metadata:
   version: 9.0.1
   resolution: "@simplewebauthn/types@npm:9.0.1"
   checksum: 10c0/397f079ac029ada1413d6001850e3b49f99297a9933822758bdca9c47c36d6558e1dc81682725e0b03c501551c94fea040cead76883dcd2bb3a34b32984900f5
+  languageName: node
+  linkType: hard
+
+"@skaleproject/constants@npm:*":
+  version: 0.3.2
+  resolution: "@skaleproject/constants@npm:0.3.2"
+  checksum: 10c0/7bf8f31e8af8869a5470a76ac83a6ad087763cef4e6bd29d4ba56f4427a24a4a7266b8a75d975bbdc6f5ebc5c18c71b9954fae94cd066c26661e19ca50ec9538
+  languageName: node
+  linkType: hard
+
+"@skaleproject/pow-ethers@npm:^0.3.3":
+  version: 0.3.3
+  resolution: "@skaleproject/pow-ethers@npm:0.3.3"
+  dependencies:
+    "@ethersproject/abi": "npm:^5.7.0"
+    "@ethersproject/bignumber": "npm:^5.7.0"
+    "@ethersproject/contracts": "npm:^5.7.0"
+    "@ethersproject/providers": "npm:^5.7.2"
+    "@ethersproject/wallet": "npm:^5.7.0"
+    "@skaleproject/pow": "npm:*"
+    bn.js: "npm:^5.2.1"
+  checksum: 10c0/2fab3357503d988a6e61199a106a5e33fb45833b0dca6f92008d306b885646418614fcc71dacb18319e214af1f23ee62b86e0ad516fc8d7fda4835492b1250dc
+  languageName: node
+  linkType: hard
+
+"@skaleproject/pow@npm:*":
+  version: 0.3.2
+  resolution: "@skaleproject/pow@npm:0.3.2"
+  dependencies:
+    "@skaleproject/constants": "npm:*"
+    bn.js: "npm:^5.2.1"
+    web3-utils: "npm:^1.8.1"
+  checksum: 10c0/80c1611da4a26eedd6daa501f4b70c3763efa16d535b9192da84e0c54e389c513f33185122fa604d1f4591f97b669357ea9fdbd592b7d1db5ea397a76ecbd8db
   languageName: node
   linkType: hard
 
@@ -7173,6 +7206,7 @@ __metadata:
     "@radix-ui/react-label": "npm:^2.1.0"
     "@radix-ui/react-navigation-menu": "npm:^1.2.1"
     "@radix-ui/react-slot": "npm:^1.1.0"
+    "@skaleproject/pow-ethers": "npm:^0.3.3"
     "@solana/web3.js": "npm:^1.95.4"
     "@tanstack/react-query": "npm:^5.59.15"
     "@types/node": "npm:^20"
@@ -13230,7 +13264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web3-utils@npm:1.10.4, web3-utils@npm:^1.3.6":
+"web3-utils@npm:1.10.4, web3-utils@npm:^1.3.6, web3-utils@npm:^1.8.1":
   version: 1.10.4
   resolution: "web3-utils@npm:1.10.4"
   dependencies:
