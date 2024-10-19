@@ -1,4 +1,5 @@
 "use client";
+import { PRIVY_APP_ID } from "@/constants/config";
 import { PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth";
 import { WagmiProvider, createConfig } from "@privy-io/wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -28,6 +29,8 @@ const privyConfig: PrivyClientConfig = {
   appearance: {
     showWalletLoginFirst: true,
   },
+  supportedChains: [skaleCalypsoTestnet],
+  defaultChain: skaleCalypsoTestnet,
 };
 
 const wagmiConfig = createConfig({
@@ -43,7 +46,7 @@ export default function Providers({
   children: React.ReactNode;
 }>) {
   return (
-    <PrivyProvider appId="cm2bujjkh01vi12igdsyc0v14" config={privyConfig}>
+    <PrivyProvider appId={PRIVY_APP_ID} config={privyConfig}>
       <QueryClientProvider client={queryClient}>
         <WagmiProvider config={wagmiConfig}>{children}</WagmiProvider>
       </QueryClientProvider>

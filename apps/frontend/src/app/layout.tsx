@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
 import Fonts from "@/fonts";
+import { SITE_URL } from "@/constants/config";
 
 const title = "Touch";
 const titleDefault = "Touch - cherish your encounters.";
 const titleTemplate = "%s :: Touch";
 const description = `"Touch" and cherish your encounters.`;
-const url = "https://touch.ryorod.dev";
+const url = SITE_URL;
 
 export const metadata: Metadata = {
   title: {
