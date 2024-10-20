@@ -10,6 +10,7 @@ import {
 import { useMyTokenId } from "@/hooks/useMyTokenId";
 import { useMyTokenMetadata } from "@/hooks/useMyTokenMetadata";
 import { useReadBalance } from "@/hooks/useReadBalance";
+import { getFreeGas } from "@/utils/freeGas";
 import { readTextFromNFC } from "@/utils/nfc";
 import { usePrivy } from "@privy-io/react-auth";
 import { useParams, useRouter } from "next/navigation";
@@ -86,6 +87,12 @@ export default function EncounteredPage() {
     const tokenHash = keccak256(stringToBytes(secretToken));
 
     setStatus("Creating your encounter...");
+
+    try {
+      await getFreeGas(user.wallet.address);
+    } catch (e) {
+      console.warn(e);
+    }
 
     writeContract?.(
       {
