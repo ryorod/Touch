@@ -3,6 +3,7 @@ import MyToken from "@/components/MyToken";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
+import Fonts from "@/fonts";
 import { useMyTokenId } from "@/hooks/useMyTokenId";
 import { useReadBalance } from "@/hooks/useReadBalance";
 import { usePrivy } from "@privy-io/react-auth";
@@ -29,7 +30,11 @@ export default function AccountPage() {
   return (
     <div className="pt-16 pb-8">
       <div className="w-11/12 max-w-xl mx-auto">
-        <h1 className="text-5xl font-bold text-sky-400 mb-12">Account</h1>
+        <h1
+          className={`${Fonts.openSans.className} text-5xl text-[#24313e] mb-12`}
+        >
+          Account
+        </h1>
         <Card className="p-4">
           {!authenticated ? (
             <div className="text-center">

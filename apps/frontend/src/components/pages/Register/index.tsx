@@ -22,6 +22,7 @@ import { Card } from "@/components/ui/card";
 import { getFreeGas } from "@/utils/freeGas";
 import { useReadBalance } from "@/hooks/useReadBalance";
 import { useMyTokenId } from "@/hooks/useMyTokenId";
+import Fonts from "@/fonts";
 
 export default function RegisterPage() {
   const { authenticated, user, login } = usePrivy();
@@ -212,7 +213,11 @@ export default function RegisterPage() {
   return (
     <div className="pt-16 pb-8">
       <div className="w-11/12 max-w-xl mx-auto">
-        <h1 className="text-5xl font-bold text-sky-400 mb-12">Register</h1>
+        <h1
+          className={`${Fonts.openSans.className} text-5xl text-[#24313e] mb-12`}
+        >
+          Register
+        </h1>
         <Card className="p-4">
           {!authenticated ? (
             <div className="text-center">

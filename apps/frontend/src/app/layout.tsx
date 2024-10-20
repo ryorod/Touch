@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     locale: "en_US",
     url,
     siteName: title,
+    images: [
+      {
+        url: SITE_URL + "/ogp.png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -40,11 +45,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${Fonts.nunito.className} antialiased bg-sky-50`}>
-        <Providers>
-          <main>{children}</main>
-          <Footer />
-        </Providers>
+      <body
+        className={`${Fonts.nunito.className} antialiased relative min-h-screen`}
+      >
+        <div className="fixed inset-0 bg-gradient-to-b from-white to-sky-50 z-0 pointer-events-none"></div>
+        <div className="relative">
+          <Providers>
+            <main>{children}</main>
+            <Footer />
+          </Providers>
+        </div>
       </body>
     </html>
   );
