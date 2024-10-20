@@ -77,6 +77,11 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!("NDEFReader" in window)) {
+      alert("This device does not support NFC");
+      return;
+    }
+
     if (!authenticated || !user?.wallet) {
       alert("Please login");
       return;
@@ -194,7 +199,7 @@ export default function RegisterPage() {
       return;
     }
 
-    setStatus("Writing data to your NFC card...");
+    setStatus("Tap your NFC card to write data");
 
     const url = `${SITE_URL}/encountered/${tokenIdRef.current}`;
     const nfcData = {

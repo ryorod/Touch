@@ -64,6 +64,11 @@ export default function EncounteredPage() {
   const { writeContract } = useWriteContract();
 
   const handleEncounter = async () => {
+    if (!("NDEFReader" in window)) {
+      alert("This device does not support NFC");
+      return;
+    }
+
     if (!authenticated || !user?.wallet) {
       alert("Please login");
       return;
@@ -75,7 +80,7 @@ export default function EncounteredPage() {
     }
 
     setLoading(true);
-    setStatus("Reading data from the NFC card...");
+    setStatus("Tap your NFC card to read data");
 
     const secretToken = await readTextFromNFC();
 
@@ -104,7 +109,7 @@ export default function EncounteredPage() {
         onSuccess: () => {
           setStatus("Encounter created successfully!");
           setLoading(false);
-          router.push("/account");
+          // router.push("/account");
           // TODO: toast message
         },
         onError: (e) => {
