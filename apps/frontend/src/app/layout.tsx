@@ -8,7 +8,7 @@ import Footer from "./footer";
 const title = "Touch";
 const titleDefault = "Touch - cherish your encounters.";
 const titleTemplate = "%s :: Touch";
-const description = `"Touch" and cherish your encounters.`;
+const description = `Give NFTs to anyone you meet, by tapping your NFC card on their smartphone.`;
 const url = SITE_URL;
 
 export const metadata: Metadata = {
