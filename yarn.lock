@@ -4562,7 +4562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.5.1":
+"axios@npm:^1.5.1, axios@npm:^1.7.7":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
   dependencies:
@@ -7218,7 +7218,7 @@ __metadata:
     eslint-config-next: "npm:14.2.15"
     lucide-react: "npm:^0.453.0"
     next: "npm:14.2.15"
-    pinata: "npm:^1.5.0"
+    pinata-web3: "npm:^0.5.1"
     postcss: "npm:^8"
     react: "npm:^18"
     react-dom: "npm:^18"
@@ -10342,13 +10342,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinata@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "pinata@npm:1.5.0"
+"pinata-web3@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "pinata-web3@npm:0.5.1"
   dependencies:
+    axios: "npm:^1.7.7"
+    form-data: "npm:^4.0.0"
     is-ipfs: "npm:^8.0.4"
     node-fetch: "npm:^3.3.1"
-  checksum: 10c0/fc2de8a2b0d0c66ce7d33e726d055ddf884972a6668609ed00fa8352824f71dcf2d1ab898c3b6ac8d91e153c0770dab1a373b9d93c6a0a32a1240189bc5089bf
+  checksum: 10c0/925b2a8a9377056ce2e0a65dd4c5afb19e1dc3fe2e79931728ceb20c5ab06600ae50e8351a148aab9e7f8ad333e5b2385a65a9524ece17e4d35d1366d9aa959f
   languageName: node
   linkType: hard
 

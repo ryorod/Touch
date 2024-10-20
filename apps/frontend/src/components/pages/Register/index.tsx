@@ -20,12 +20,13 @@ import {
 } from "@/constants/abiAndAddress";
 import { Card } from "@/components/ui/card";
 import { getFreeGas } from "@/utils/freeGas";
+import { useReadBalance } from "@/hooks/useReadBalance";
 
 export default function RegisterPage() {
   const { authenticated, user, login } = usePrivy();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [hasMyToken, setHasMyToken] = useState<boolean>(false); // TODO: set to undefined
+  const [hasMyToken, setHasMyToken] = useState<boolean>();
   const tokenIdRef = useRef<string>();
   const secretTokenRef = useRef<string>();
 
@@ -36,14 +37,7 @@ export default function RegisterPage() {
   const [collectionSymbol, setCollectionSymbol] = useState<string>();
   const [status, setStatus] = useState<string>();
 
-  const { data: balanceData } = useReadContract({
-    ...MyTokenABIAddress,
-    functionName: "balanceOf",
-    args: [user?.wallet?.address],
-    query: {
-      enabled: authenticated && !!user?.wallet?.address,
-    },
-  });
+  const { data: balanceData } = useReadBalance();
 
   useEffect(() => {
     if (authenticated && balanceData !== undefined) {
@@ -228,7 +222,9 @@ export default function RegisterPage() {
         <h1 className="text-5xl font-bold text-sky-400 mb-12">Register</h1>
         <Card className="p-4">
           {!authenticated ? (
-            <Button onClick={login}>Login</Button>
+            <div className="text-center">
+              <Button onClick={login}>Login</Button>
+            </div>
           ) : loading || hasMyToken === undefined ? (
             <div className="flex flex-col items-center justify-center h-48">
               <Spinner />
@@ -305,7 +301,7 @@ export default function RegisterPage() {
                   required
                 />
               </div>
-              <div>
+              <div className="text-center">
                 <Button type="submit" className="mt-3 font-bold">
                   Create your MyToken and register
                 </Button>

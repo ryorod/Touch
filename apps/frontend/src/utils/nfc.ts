@@ -18,10 +18,10 @@ export const writeDataToNFC = async (data: {
           },
         ],
       });
-      alert("Finished writing to NFC card");
+      alert("Finished writing to your NFC card");
     } catch (error) {
       console.error("NFC Writing Error:", error);
-      alert("Failed writing to NFC card");
+      alert("Failed writing to your NFC card");
     }
   } else {
     alert("This device does not support NFC");
@@ -47,7 +47,7 @@ export const readTextFromNFC = async () => {
       return text;
     } catch (error) {
       console.error("NFC Reading Error:", error);
-      alert("Failed reading from NFC card");
+      alert("Failed reading from the NFC card");
       return null;
     }
   } else {

@@ -1,6 +1,7 @@
 import myTokenABI from "@/abis/MyToken.json";
 import secretTokenManagerABI from "@/abis/SecretTokenManager.json";
 import encountersFactoryABI from "@/abis/EncountersFactory.json";
+import encountersCollectionABI from "@/abis/EncountersCollection.json";
 import {
   ENCOUNTERS_FACTORY_ADDRESS,
   MYTOKEN_CONTRACT_ADDRESS,
@@ -20,4 +21,9 @@ export const SecretTokenManagerABIAddress = {
 export const EncountersFactoryABIAddress = {
   abi: encountersFactoryABI,
   address: ENCOUNTERS_FACTORY_ADDRESS,
+};
+
+export const EncountersCollectionABIAddress = {
+  abi: encountersCollectionABI,
+  address: null,
 };
