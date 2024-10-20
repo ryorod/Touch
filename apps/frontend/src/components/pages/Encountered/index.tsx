@@ -6,8 +6,8 @@ import { Spinner } from "@/components/ui/spinner";
 import {
   EncountersCollectionABIAddress,
   EncountersFactoryABIAddress,
-  MyTokenABIAddress,
 } from "@/constants/abiAndAddress";
+import { useMyTokenId } from "@/hooks/useMyTokenID";
 import { useMyTokenMetadata } from "@/hooks/useMyTokenMetadata";
 import { useReadBalance } from "@/hooks/useReadBalance";
 import { readTextFromNFC } from "@/utils/nfc";
@@ -26,21 +26,8 @@ export default function EncounteredPage() {
   const [hasMyToken, setHasMyToken] = useState<boolean>();
 
   const { data: balanceData } = useReadBalance();
-
-  const { data: tokenOfOwnerData } = useReadContract({
-    ...MyTokenABIAddress,
-    functionName: "tokenOfOwnerByIndex",
-    args: [user?.wallet?.address, 0],
-    query: {
-      enabled:
-        authenticated &&
-        !!user?.wallet?.address &&
-        !!balanceData &&
-        (balanceData as bigint) > BigInt(0),
-    },
-  });
-
-  const { tokenURI } = useMyTokenMetadata(tokenId);
+  const { data: tokenOfOwnerData } = useMyTokenId(balanceData);
+  const { tokenURI } = useMyTokenMetadata(tokenId, true);
 
   const { data: encounterCollectionAddress } = useReadContract({
     ...EncountersFactoryABIAddress,

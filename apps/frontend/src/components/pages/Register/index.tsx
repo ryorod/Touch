@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { usePrivy } from "@privy-io/react-auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { useReadContract, useWriteContract } from "wagmi";
+import { useWriteContract } from "wagmi";
 import { keccak256, stringToBytes } from "viem";
 import { v4 as uuidv4 } from "uuid";
 import { writeDataToNFC } from "@/utils/nfc";
@@ -21,6 +21,7 @@ import {
 import { Card } from "@/components/ui/card";
 import { getFreeGas } from "@/utils/freeGas";
 import { useReadBalance } from "@/hooks/useReadBalance";
+import { useMyTokenId } from "@/hooks/useMyTokenID";
 
 export default function RegisterPage() {
   const { authenticated, user, login } = usePrivy();
@@ -50,15 +51,7 @@ export default function RegisterPage() {
     }
   }, [authenticated, balanceData, router]);
 
-  const { refetch: refetchTokenData } = useReadContract({
-    ...MyTokenABIAddress,
-    functionName: "tokenOfOwnerByIndex",
-    args: [user?.wallet?.address, 0],
-    query: {
-      enabled:
-        authenticated && !!balanceData && (balanceData as bigint) > BigInt(0),
-    },
-  });
+  const { refetch: refetchTokenData } = useMyTokenId(balanceData);
 
   const configMintMyToken = {
     ...MyTokenABIAddress,
