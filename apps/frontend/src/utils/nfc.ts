@@ -29,21 +29,34 @@ export const writeDataToNFC = async (data: {
 };
 
 export const readTextFromNFC = async () => {
-  let text: string | undefined;
-
   if ("NDEFReader" in window) {
     try {
       const NDEFReader = window.NDEFReader as any;
       const ndef = new NDEFReader();
       await ndef.scan();
-      ndef.onreading = (event: any) => {
-        for (const record of event.message.records) {
-          if (record.recordType === "text") {
-            const textDecoder = new TextDecoder();
-            text = textDecoder.decode(record.data);
+
+      const text = await new Promise<string>((resolve, reject) => {
+        ndef.onreading = (event: any) => {
+          let foundText = false;
+          for (const record of event.message.records) {
+            if (record.recordType === "text") {
+              const textDecoder = new TextDecoder();
+              const decodedText = textDecoder.decode(record.data);
+              resolve(decodedText);
+              foundText = true;
+              break;
+            }
           }
-        }
-      };
+          if (!foundText) {
+            reject("No text record found");
+          }
+        };
+
+        ndef.onerror = (error: any) => {
+          reject(error);
+        };
+      });
+
       return text;
     } catch (error) {
       console.error("NFC Reading Error:", error);
