@@ -3,6 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 import Fonts from "@/fonts";
 import { SITE_URL } from "@/constants/config";
+import Footer from "./footer";
 
 const title = "Touch";
 const titleDefault = "Touch - cherish your encounters.";
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className={`${Fonts.nunito.className} antialiased bg-sky-50`}>
         <Providers>
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

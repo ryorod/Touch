@@ -109,7 +109,7 @@ export default function EncounteredPage() {
   };
 
   return (
-    <div className="py-16">
+    <div className="pt-16 pb-8">
       <div className="w-11/12 max-w-xl mx-auto">
         <h1 className="text-5xl font-bold text-sky-400 mb-12">Encountered</h1>
         <Card className="p-4">

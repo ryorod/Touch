@@ -20,7 +20,7 @@ const NavList = [
 
 export default function HomePage() {
   return (
-    <div className="py-16">
+    <div className="pt-16 pb-8">
       <div className="w-11/12 max-w-screen-xl mx-auto">
         <h1 className="text-center text-6xl font-bold italic text-sky-400">
           Touch
