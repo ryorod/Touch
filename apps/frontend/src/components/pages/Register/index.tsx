@@ -21,7 +21,7 @@ import {
 import { Card } from "@/components/ui/card";
 import { getFreeGas } from "@/utils/freeGas";
 import { useReadBalance } from "@/hooks/useReadBalance";
-import { useMyTokenId } from "@/hooks/useMyTokenID";
+import { useMyTokenId } from "@/hooks/useMyTokenId";
 
 export default function RegisterPage() {
   const { authenticated, user, login } = usePrivy();

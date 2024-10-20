@@ -3,7 +3,7 @@ import MyToken from "@/components/MyToken";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
-import { useMyTokenId } from "@/hooks/useMyTokenID";
+import { useMyTokenId } from "@/hooks/useMyTokenId";
 import { useReadBalance } from "@/hooks/useReadBalance";
 import { usePrivy } from "@privy-io/react-auth";
 import Link from "next/link";

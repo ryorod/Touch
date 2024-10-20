@@ -7,7 +7,7 @@ import {
   EncountersCollectionABIAddress,
   EncountersFactoryABIAddress,
 } from "@/constants/abiAndAddress";
-import { useMyTokenId } from "@/hooks/useMyTokenID";
+import { useMyTokenId } from "@/hooks/useMyTokenId";
 import { useMyTokenMetadata } from "@/hooks/useMyTokenMetadata";
 import { useReadBalance } from "@/hooks/useReadBalance";
 import { readTextFromNFC } from "@/utils/nfc";
